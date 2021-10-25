@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Lista Users</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" type ="text/css" th:href = "@{/css/lojaindex.css}">
+    </head>
+    <body>
+        <div align="center">
+			<h1 class="label">Gerenciamento Usuários</h1>
+		</div>
+        <div align="center">
+            <table class="styled-table">		
+                <thead>
+					<tr>
+						<th>Username</th>
+						<th>CPF</th>
+						<th>Nome</th>
+						<th>Telefone</th>
+                        <th>Sexo</th>
+						<th>Data Nascimento</th>
+						<th>Papel</th>
+						<th>Ação</th>
+					</tr>
+
+                </thead>		
+                <tbody>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.username}"></td>
+                    <td th:text="${usuario.cpf}"></td>
+                    <td th:text="${usuario.nome}"></td>
+                    <td th:text="${usuario.telefone}"></td>
+                    <td th:text="${usuario.sexo}"></td>
+                    <td th:text="${usuario.datanasc}"></td>
+                    <td th:text="${usuario.role}"></td>
+                    <td><a href="#">Editar</a>
+                        <a href="#" onclick="return confirm('Tem certeza que deseja deletar esse usuário?');">Deletar</a>
+                    </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>             
+    </body>
+</html>
