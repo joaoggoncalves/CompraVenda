@@ -27,10 +27,10 @@
          <div class="right">
             <div class="formBox">
                <form method="post" th:action="@{/login}">
-                  <p>Username:</p>
-                  <input type="username" name="username" >
-                  <p>Senha:</p>
-                  <input type="password" name="password">
+                  <label for="username">Username:</label>
+                  <input type="username" name="username" placeholder="My name is Jonas" required >
+                  <label for="pass">Password:</label>
+                  <input type="password" name="password" placeholder="********" required>
                   <input type="submit" name="bOK" value="Entrar"/>
                </form>
                </form>
