@@ -68,19 +68,52 @@
                     <span th:errors="*{cpf}"></span>
                 </div>
             </div>
-            
-            <div class="form-group col-md-6">
-                <label text="Papel:" for="role"></label> 
-                <select id="role" class="form-control" th:field="*{role}"
-                    th:classappend="${#fields.hasErrors('role')} ? is-invalid">
-                    <option value="ROLE_ADMIN">ROLE_ADMIN</option>
-                    <option value="ROLE_USER">ROLE_USER</option>
-                    <option value="ROLE_LOJA">ROLE_LOJA</option>
-                </select>
 
+            <div class="form-group col-md-6">
+                <label text="Telefone:" for="telefone"></label> 
+                <input type="text" class="form-control" id="telefone" th:field="*{telefone}"
+                    placeholder="Telefone" autofocus="autofocus"
+                    th:classappend="${#fields.hasErrors('telefone')} ? is-invalid" />
+                    
                 <div class="invalid-feedback">
-                    <span th:errors="*{role}"></span>
+                    <span th:errors="*{telefone}"></span>
                 </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Sexo:" for="sexo"></label> 
+                <input type="text" class="form-control" id="sexo" th:field="*{sexo}"
+                    placeholder="Sexo" autofocus="autofocus"
+                    th:classappend="${#fields.hasErrors('sexo')} ? is-invalid" />
+                    
+                <div class="invalid-feedback">
+                    <span th:errors="*{sexo}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Data Nascimento:" for="datanasc"></label> 
+                <input type="text" class="form-control" id="datanasc" th:field="*{datanasc}"
+                    placeholder="00/00/0000" autofocus="autofocus"
+                    th:classappend="${#fields.hasErrors('datanasc')} ? is-invalid" />
+                    
+                <div class="invalid-feedback">
+                    <span th:errors="*{datanasc}"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label text="Papel:" for="role"></label> 
+            <select id="role" class="form-control" th:field="*{role}"
+                th:classappend="${#fields.hasErrors('role')} ? is-invalid">
+                <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+                <option value="ROLE_USER">ROLE_USER</option>
+                <option value="ROLE_LOJA">ROLE_LOJA</option>
+            </select>
+
+            <div class="invalid-feedback">
+                <span th:errors="*{role}"></span>
             </div>
         </div>
 

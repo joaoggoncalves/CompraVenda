@@ -34,8 +34,8 @@
                     <td th:text="${usuario.sexo}"></td>
                     <td th:text="${usuario.datanasc}"></td>
                     <td th:text="${usuario.role}"></td>
-                    <td><a href="#">Editar</a>
-                        <a href="#" onclick="return confirm('Tem certeza que deseja deletar esse usuário?');">Deletar</a>
+                    <td><a th:href="@{/admin/editar/{id} (id=${usuario.id}) }">Editar</a>
+                        <a th:href="@{/admin/excluir/{id} (id=${usuario.id}) }" onclick="return confirm('Tem certeza que deseja deletar esse usuário?');">Deletar</a>
                     </td>
                     </tr>
                 </c:forEach>
