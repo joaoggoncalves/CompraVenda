@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Compra e Venda de carros</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <header>
+      <div class="main">
+        <div class="logo">
+          <img th:src="@{/image/logo_free.jpg}" />
+        </div>
+        <ul class="top_bar">
+          <li><a href="contact.html">Contato</a></li>
+          <li><a th:href="@{/login}">Login</a></li>
+          <li><a class="active" href="#">Home</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="action_btn">
+      <a th:href="@{/login}" class="btn">Vender</a>
+      <a th:href="@{/lista}" class="btn">Comprar</a>
+    </div>
+  </body>
+</html>

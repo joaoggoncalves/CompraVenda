@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+
+}
+
+header{
+   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.4)),url(../image/bugatti_voiture.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.logo img{
+    float: left;
+    width: 48px;
+    padding-top: 0px;
+    
+}
+
+.top_bar{
+    background-color: #333;
+    overflow: hidden;
+
+}
+.top_bar li{
+    display: inline-block;
+    float: right;
+}
+
+.top_bar li a{
+    float: right;
+    color:#fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.4s linear;
+}
+
+.top_bar li a:hover{
+    background-color: #fff;
+    color: #000
+
+}
+
+.top_bar a.active {
+    background-color: rgb(9,119, 255);
+    color: white;
+}
+
+.action_btn{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.btn{
+    border: 1px solid #fff;
+    padding: 15px 30px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.6s ease-in-out;
+    font-size: xx-large;
+    border-radius: 4px;
+}
+
+.btn:hover{
+    background-color: #fff;
+    color: #000;
+    padding: 25px 50px;
+}
+
+/*Login Page*/
+
+body.login{
+    margin: 0;
+    padding: 0;
+    background: url(../image/civic.jpg);
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.title{
+    text-align: center;
+    padding: 50px 0 20px;
+
+}
+
+.title h1{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+
+.container {
+    width: 50%;
+    height: 400px;
+    background: #fff;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.acontainer {
+    width: 30%;
+    height: 500px;
+    background: rgb(235, 235, 235);
+    margin: 0 auto;
+    border: 2px solid #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.admindex {
+    background-image: url(../image/jdm.png);
+    background-size: cover;
+}
+
+.container .left {
+    float: left;
+    width: 50%;
+    height: 400px;
+    background: url(../image/bugatti_voiture.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.container .right {
+    float: right;
+    width: 50%;
+    height: 400px;
+    box-sizing: border-box;
+
+}
+
+.formBox {
+  width: 100%;
+  padding: 80px 40px;
+  box-sizing: border-box;
+  height: 400px;
+  background: #fff;
+
+}
+
+.formBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #000;
+}
+
+.formBox input{
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+.formBox input[type="text"],
+.formBox input[type="password"] {
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    height: 40px;
+}
+
+.formBox input[type="text"]:focus,
+.formBox input[type="password"]:focus{
+    border-bottom: 2px solid rgb(9,119, 255);
+
+}
+
+.formBox input[type="submit"]{
+    border:none;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    background-color: #262626;
+    cursor: pointer;
+}
+
+.formBox input[type="submit"]:hover {
+    background:rgb(9,119, 255);
+
+}
+
+.formBox a{
+    color:rgb(9,119, 255);
+    font-weight: bold;
+    font-size: small;
+
+}
+
+ol {
+    counter-reset: li; /* Initiate a counter */
+    list-style: none; /* Remove default numbering */
+    *list-style: decimal; /* Keep using default numbering for IE6/7 */
+    font: 15px 'trebuchet MS', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  }
+
+  ol ol {
+    margin: 0 0 0 2em; /* Add some left margin for inner lists */
+  }
+
+  .rounded-list a{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: all .3s ease-out;
+  }
+
+  .rounded-list a:hover{
+    background: #eee;
+  }
+
+  .rounded-list a:hover:before{
+    transform: rotate(360deg);
+  }
+
+  .rounded-list a:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute;
+    left: -1.3em;
+    top: 50%;
+    margin-top: -1.3em;
+    background: #1c8a1c;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border: .3em solid #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 2em;
+    transition: all .5s ease-out;
+  }
+
+.PagUsr {
+    background-image: url(../image/jdm2.jpg);
+    background-size: cover;
+}
+
+.containeruser {
+    width: 30%;
+    height: 500px;
+    background: rgb(235, 235, 235);
+    margin: 0 auto;
+    border: 2px solid #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+  

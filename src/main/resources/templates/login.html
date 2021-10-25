@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+      <title>Pagina de login</title>
+      <link rel = "stylesheet" type ="text/css" th:href = "@{/css/style.css}">
+   </head>
+   <body class="login">
+      
+      <div class="main">
+         <div class="logo">
+           <img th:src="@{/image/logo_free.jpg}">
+         </div>
+         <ul class="top_bar">
+            <li><a href="contact.html">Contato</a></li>
+          <li><a th:href="@{/login}">Login</a></li>
+          <li><a class="active" th:href="@{/home}">Home</a></li>
+         </ul>
+       </div>
+
+      <div class="title">
+         <h1>Login</h1>
+      </div>
+      <div class="container">
+         <div class="left"></div>
+         <div class="right">
+            <div class="formBox">
+               <form method="post" th:action="@{/login}">
+                  <p>Username:</p>
+                  <input type="username" name="username" >
+                  <p>Senha:</p>
+                  <input type="password" name="password">
+                  <input type="submit" name="bOK" value="Entrar"/>
+               </form>
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
