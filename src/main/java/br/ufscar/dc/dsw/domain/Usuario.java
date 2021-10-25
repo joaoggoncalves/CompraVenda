@@ -40,6 +40,9 @@ public class Usuario extends AbstractEntity<Long> {
     @Column(nullable = true, length = 20)
     private String datanasc;
 
+    @Column(nullable = true, length = 256)
+    private String descricao;
+
     @NotBlank
     @Column(nullable = false, length = 20)
     private String role;
@@ -114,6 +117,14 @@ public class Usuario extends AbstractEntity<Long> {
 
     public String getRole() {
         return role;
+    }
+
+    public void setDescricao (String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
     }
 
 }

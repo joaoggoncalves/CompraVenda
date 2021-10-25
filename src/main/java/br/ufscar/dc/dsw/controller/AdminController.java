@@ -46,6 +46,19 @@ public class AdminController {
         return "admin/listausers";
     }
 
+    @GetMapping("/listalojas")
+    public String listalojas(ModelMap model) {
+        List<Usuario> lista = service.buscarTodos();
+        List<Usuario> listafiltrada = new ArrayList<Usuario>();
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getRole().contains("ROLE_LOJA")) {
+                listafiltrada.add(lista.get(i));
+            }
+        }
+        model.addAttribute("usuarios", listafiltrada);
+        return "admin/listalojas";
+    }
+
     @GetMapping("/cadastrouser")
     public String cadastro(Usuario usuario) {
         return "admin/cadastrouser";
@@ -59,7 +72,7 @@ public class AdminController {
         usuario.setPassword(encoder.encode(usuario.getPassword()));
 		service.salvar(usuario);
         attr.addFlashAttribute("sucess", "Usuário inserido com sucesso.");
-        return "redirect:/admin/listausers";
+        return "redirect:/admin/adminindex";
     }
 
     @GetMapping("/editar/{id}")
@@ -77,7 +90,7 @@ public class AdminController {
 		
 		service.salvar(usuario);
 		attr.addFlashAttribute("sucess", "Usuário editado com sucesso.");
-		return "redirect:/admin/listausers";
+		return "redirect:/admin/adminindex";
 	}
 
     @GetMapping("/excluir/{id}")
