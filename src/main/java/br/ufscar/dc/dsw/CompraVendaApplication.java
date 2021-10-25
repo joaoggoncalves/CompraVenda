@@ -28,6 +28,11 @@ public class CompraVendaApplication {
 			u2.setPassword(encoder.encode("admin"));
 			u2.setRole("ROLE_ADMIN");
 			//dao.save(u2);
+			Usuario u3 = new Usuario();
+			u3.setUsername("loja");
+			u3.setPassword(encoder.encode("loja"));
+			u3.setRole("ROLE_LOJA");
+			//dao.save(u3);
 		};
 	}
 

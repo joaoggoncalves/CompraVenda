@@ -24,10 +24,12 @@ public class LoginController {
         
         String role =  authResult.getAuthorities().toString();
         
-        if(role.contains("ROLE_ADMIN")){
+        if (role.contains("ROLE_ADMIN")){
             response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "admin/adminindex"));                            
-        } else if(role.contains("ROLE_USER")) {
+        } else if (role.contains("ROLE_USER")) {
              response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "user/userindex"));
+        } else if (role.contains("ROLE_LOJA")) {
+            response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "loja/lojaindex"));
         }
     }
 }

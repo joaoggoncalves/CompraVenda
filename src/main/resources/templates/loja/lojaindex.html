@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel = "stylesheet" type ="text/css" th:href = "@{/css/lojaindex.css}">
+        <title>Menu Loja</title>
+    </head>
+    <body>
+        <div align="center">
+            <h1>Página da Loja</h1>
+        </div>
+
+        <div align="center">
+            <span>Olá </span>
+            <span sec:authentication="name">Teste</span>
+            <br>
+            <br>
+
+            <a href="#">Adicionar Carro</a>
+            <a href="#">Adicionar Foto</a>
+            <a href="#">Listar Propostas</a>
+            <a href="#" onclick="document.getElementById('logout-form').submit();"><h2>Logout</h2></a>
+            <form id="logout-form" th:action="@{/logout}" method="post"></form>
+        </div>
+        <br>
+        <br>
+        <div align="center">
+            <h3>Seus Carros:</h3>
+            <table class="styled-table">
+            <thead>
+            <tr>
+                <th>Placa</th>
+                <th>Modelo</th>
+                <th>Chassi</th>
+                <th>Ano</th>
+                <th>Km</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Ação</th>
+            </tr>
+            </thead>
+            <!--<tbody>       
+                <c:forEach var="carro" items="${requestScope.listaCarrosLoja}">
+                    <tr>
+                        <td>${carro.placa}</td>
+                        <td>${carro.modelo}</td>
+                        <td>${carro.chassi}</td>
+                        <td>${carro.ano}</td>
+                        <td>${carro.km}</td>
+                        <td>${carro.descricaocarro}</td>
+                        <td>${carro.valor}</td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/lojas/editar?placa=${carro.placa}" class="teste"><h3><fmt:message key="edit"/></h3></a> &nbsp;&nbsp;&nbsp;&nbsp;        
+                            <a href="${pageContext.request.contextPath}/lojas/remove?placa=${carro.placa}" onclick="return confirm('Tem certeza de que deseja excluir este item?');"><h3><fmt:message key="remover-carro"/></h3></a>
+                        </td>
+                    </c:forEach>
+            </tbody>-->
+            </table>
+        </div>
+    </body>
+</html>
