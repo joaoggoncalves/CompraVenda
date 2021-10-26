@@ -14,6 +14,7 @@ public class UsuarioService implements IUsuarioService {
 
     @Autowired
     IUsuarioDAO dao;
+    
     public void salvar(Usuario usuario) {  
         dao.save(usuario);
     }

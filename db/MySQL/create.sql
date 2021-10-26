@@ -5,7 +5,7 @@ CREATE DATABASE Sistema;
 USE Sistema
 
 CREATE TABLE Usuario(
-    id INT NOT NULL auto_increment, 
+    id BIGINT NOT NULL auto_increment, 
     username VARCHAR(64) NOT NULL UNIQUE, 
     password VARCHAR(64) NOT NULL, 
     cpf VARCHAR(15), 
@@ -26,8 +26,7 @@ CREATE TABLE Carro(
     km INTEGER,
     descricaocarro VARCHAR(256),
     valor FLOAT,
-    lojacarro VARCHAR(64),
-    FOREIGN KEY (lojacarro) REFERENCES Usuario(username) ON DELETE CASCADE
+    PRIMARY KEY (placa)
 );
 
 CREATE TABLE Proposta(
@@ -36,7 +35,7 @@ CREATE TABLE Proposta(
     condicoes VARCHAR(256),
     dataatual VARCHAR(100),
     statusproposta VARCHAR(64),
-    clienteproposta INT,
+    clienteproposta BIGINT,
     placaproposta VARCHAR(10),
     FOREIGN KEY (clienteproposta) REFERENCES Usuario(id),
     FOREIGN KEY (placaproposta) REFERENCES Carro(placa),

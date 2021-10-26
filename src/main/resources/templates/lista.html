@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Carros</title>
+    <link rel="stylesheet" type ="text/css" th:href="@{/css/lista.css}">
+</head>
+<body> 
+      <div class="main">
+        <div class="logo">
+          <img th:src="@{/image/logo_free.jpg}">
+        </div>
+        <ul class="top_bar">
+          <li><a th:href="@{/contato}">Contato</a></li>
+          <li><a th:href="@{/login}">Login</a></li>
+          <li><a class="active" th:href="@{/home}">Home</a></li>
+        </ul>
+      </div>
+
+      <br>
+    <div id="divFiltro">
+      <input type="text" name="Filtro" placeholder="Buscar carro???" id="filtro">
+      <input type="submit" name="Confirmar" id="">
+    </div>
+    <div class="image-grid">
+      <a th:each="carro : ${carros}" class="teste" href="logins?placa=${carro.placa}"><img th:src="@{/image/{modelo}.jpg (modelo=${carro.modelo})}" alt="carroalt"><h2 class="titulo_carro"
+        th:text="${carro.modelo} + ' ' + ${carro.valor}"></h2>
+    </div>
+  </body>
+</html>
