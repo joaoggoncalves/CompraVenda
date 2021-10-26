@@ -18,7 +18,7 @@
             <br>
             <br>
 
-            <a href="#">Adicionar Carro</a>
+            <a th:href="@{/loja/cadastrocarro}">Adicionar Carro</a>
             <a href="#">Adicionar Foto</a>
             <a href="#">Listar Propostas</a>
             <a href="#" onclick="document.getElementById('logout-form').submit();"><h2>Logout</h2></a>
@@ -41,22 +41,20 @@
                 <th>Ação</th>
             </tr>
             </thead>
-            <!--<tbody>       
-                <c:forEach var="carro" items="${requestScope.listaCarrosLoja}">
-                    <tr>
-                        <td>${carro.placa}</td>
-                        <td>${carro.modelo}</td>
-                        <td>${carro.chassi}</td>
-                        <td>${carro.ano}</td>
-                        <td>${carro.km}</td>
-                        <td>${carro.descricaocarro}</td>
-                        <td>${carro.valor}</td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/lojas/editar?placa=${carro.placa}" class="teste"><h3><fmt:message key="edit"/></h3></a> &nbsp;&nbsp;&nbsp;&nbsp;        
-                            <a href="${pageContext.request.contextPath}/lojas/remove?placa=${carro.placa}" onclick="return confirm('Tem certeza de que deseja excluir este item?');"><h3><fmt:message key="remover-carro"/></h3></a>
-                        </td>
-                    </c:forEach>
-            </tbody>-->
+            <tbody>       
+                <tr th:each="carro : ${carros}">
+                    <td th:text="${carro.placa}"></td>
+                    <td th:text="${carro.modelo}"></td>
+                    <td th:text="${carro.chassi}"></td>
+                    <td th:text="${carro.ano}"></td>
+                    <td th:text="${carro.km}"></td>
+                    <td th:text="${carro.descricaocarro}"></td>
+                    <td th:text="${carro.valor}"></td>
+                    <td>
+                        <a href="${pageContext.request.contextPath}/lojas/editar?placa=${carro.placa}" class="teste"><h3>Editar</h3></a> &nbsp;&nbsp;&nbsp;&nbsp;        
+                        <a href="${pageContext.request.contextPath}/lojas/remove?placa=${carro.placa}" onclick="return confirm('Tem certeza de que deseja excluir este item?');"><h3>Deletar</h3></a>
+                    </td>
+            </tbody>
             </table>
         </div>
     </body>

@@ -19,6 +19,7 @@ CREATE TABLE Usuario(
 );
 
 CREATE TABLE Carro(
+    id BIGINT NOT NULL auto_increment,
     placa VARCHAR(10) NOT NULL UNIQUE,
     modelo VARCHAR(64),
     chassi VARCHAR(32) NOT NULL UNIQUE,
@@ -26,7 +27,7 @@ CREATE TABLE Carro(
     km INTEGER,
     descricaocarro VARCHAR(256),
     valor FLOAT,
-    PRIMARY KEY (placa)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE Proposta(

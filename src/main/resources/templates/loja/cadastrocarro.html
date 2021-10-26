@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+  <head>
+    <title>Registro de Carro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!--<style>
+    body {
+      background-image: url(../image/car.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+  </style>-->
+
+  <link rel="stylesheet" type ="text/css" th:href="@{/css/style.css}">
+  </head>
+  <body>
+    <div align="center">
+      <h1><font color="black"><font color="Black">Gerenciamento de Carros</font></h1>
+      <h2>
+        <a th:href="@{/loja/lojaindex}">Voltar</a>
+      </h2>
+    </div>
+    <div align="center">
+        <form
+        th:action="${carro.id == null} ? @{/loja/salvarcarro} : @{/loja/editarcarro}"
+        th:object="${carro}" method="POST">
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label text="Placa:" for="placa"></label> 
+                <input type="text" class="form-control" id="placa"
+                    placeholder="ABC-1234"
+                    autofocus="autofocus" th:field="*{placa}"
+                    th:classappend="${#fields.hasErrors('placa')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{placa}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Modelo:" for="modelo"></label> 
+                <input type="text" class="form-control" id="modelo"
+                    placeholder="Chevettão da massa"
+                    autofocus="autofocus" th:field="*{modelo}"
+                    th:classappend="${#fields.hasErrors('modelo')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{modelo}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Chassi:" for="chassi"></label> 
+                <input type="text" class="form-control" id="chassi"
+                    placeholder="naoseioqehchassi"
+                    autofocus="autofocus" th:field="*{chassi}"
+                    th:classappend="${#fields.hasErrors('chassi')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{chassi}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Loja:" for="usuario"></label> 
+                <select id="usuario" class="form-control" th:field="*{usuario}"
+                    th:classappend="${#fields.hasErrors('usuario')} ? is-invalid">
+                    <option th:value="${usuarioatual.id}"
+                        th:text="${usuarioatual.nome}"></option>
+                </select>
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{usuario}"></span>
+                </div>
+            </div>
+
+        <input type="hidden" id="id" th:field="*{id}" />
+        <button type="submit"
+            class="btn btn-primary btn-sm">Salvar</button>
+    </form>
+    </div>
+  </body>
+</html>

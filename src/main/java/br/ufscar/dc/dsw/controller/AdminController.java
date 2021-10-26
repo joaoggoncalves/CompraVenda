@@ -71,7 +71,7 @@ public class AdminController {
         }
         usuario.setPassword(encoder.encode(usuario.getPassword()));
 		service.salvar(usuario);
-        attr.addFlashAttribute("sucess", "Usuário inserido com sucesso.");
+        attr.addFlashAttribute("success", "Usuário inserido com sucesso.");
         return "redirect:/admin/adminindex";
     }
 
@@ -89,7 +89,7 @@ public class AdminController {
 		}
 		
 		service.salvar(usuario);
-		attr.addFlashAttribute("sucess", "Usuário editado com sucesso.");
+		attr.addFlashAttribute("success", "Usuário editado com sucesso.");
 		return "redirect:/admin/adminindex";
 	}
 
