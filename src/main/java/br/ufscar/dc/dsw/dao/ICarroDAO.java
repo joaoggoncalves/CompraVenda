@@ -14,6 +14,6 @@ public interface ICarroDAO extends CrudRepository<Carro, Long> {
     public Carro getCarroByPlaca(@Param("placa") String placa);
     List<Carro> findAll();
     Carro save(Carro carro);
-    @Query("DELETE FROM Carro WHERE placa = ?1")
-    void deleteByPlaca(String placa);
+    Carro findById(long id);
+    void deleteById(Long id);
 }

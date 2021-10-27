@@ -67,6 +67,54 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
+                <label text="Ano:" for="ano"></label> 
+                <input type="number" class="form-control" id="ano"
+                    placeholder="Ano"
+                    autofocus="autofocus" th:field="*{ano}"
+                    th:classappend="${#fields.hasErrors('ano')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{ano}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Km:" for="km"></label> 
+                <input type="number" class="form-control" id="km"
+                    placeholder="Kilometragem"
+                    autofocus="autofocus" th:field="*{km}"
+                    th:classappend="${#fields.hasErrors('km')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{km}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Descricao:" for="descricaocarro"></label> 
+                <input type="text" class="form-control" id="descricaocarro"
+                    placeholder="Descricao do carro"
+                    autofocus="autofocus" th:field="*{descricaocarro}"
+                    th:classappend="${#fields.hasErrors('descricaocarro')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{descricaocarro}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Preço:" for="valor"></label> 
+                <input type="text" class="form-control" id="valor"
+                    placeholder="Preço"
+                    autofocus="autofocus" th:field="*{valor}"
+                    th:classappend="${#fields.hasErrors('valor')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{valor}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
                 <label text="Loja:" for="usuario"></label> 
                 <select id="usuario" class="form-control" th:field="*{usuario}"
                     th:classappend="${#fields.hasErrors('usuario')} ? is-invalid">

@@ -8,5 +8,6 @@ public interface ICarroService {
     Carro buscarPorPlaca(String placa);
     List<Carro> todosCarros();
     void salvar(Carro carro);
-    void excluirPorPlaca(String placa);
+    void excluirPorId(Long id);
+    Carro buscarPorId(Long id);
 }

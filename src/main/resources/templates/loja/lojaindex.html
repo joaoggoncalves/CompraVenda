@@ -51,8 +51,8 @@
                     <td th:text="${carro.descricaocarro}"></td>
                     <td th:text="${carro.valor}"></td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/lojas/editar?placa=${carro.placa}" class="teste"><h3>Editar</h3></a> &nbsp;&nbsp;&nbsp;&nbsp;        
-                        <a href="${pageContext.request.contextPath}/lojas/remove?placa=${carro.placa}" onclick="return confirm('Tem certeza de que deseja excluir este item?');"><h3>Deletar</h3></a>
+                        <a th:href="@{/loja/editarcarro/{id} (id=${carro.id}) }" class="teste"><h3>Editar</h3></a> &nbsp;&nbsp;&nbsp;&nbsp;        
+                        <a th:href="@{/loja/removercarro/{id} (id=${carro.id}) }" onclick="return confirm('Tem certeza de que deseja excluir este item?');"><h3>Deletar</h3></a>
                     </td>
             </tbody>
             </table>

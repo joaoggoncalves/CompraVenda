@@ -21,6 +21,7 @@ public class CarroService implements ICarroService {
         return dao.getCarroByPlaca(placa);
     }
 
+    @Transactional(readOnly = true)
     public List<Carro> todosCarros() {
         return dao.findAll();
     }
@@ -29,8 +30,13 @@ public class CarroService implements ICarroService {
         dao.save(carro);
     }
 
-    public void excluirPorPlaca(String placa) {
-        dao.deleteByPlaca(placa);
+    public void excluirPorId(Long id) {
+        dao.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public Carro buscarPorId(Long id) {
+        return dao.findById(id.longValue());
     }
 
 }

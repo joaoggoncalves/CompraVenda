@@ -7,12 +7,12 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -29,7 +29,7 @@ public class LojaController {
 	private ICarroService carroservice;
 
     @GetMapping("/lojaindex")
-    public String home(ModelMap model) {
+    public String lojaindex(ModelMap model) {
         List<Carro> listacarros = carroservice.todosCarros();
         List<Carro> listacarrosfiltrada = new ArrayList<Carro>();
         Object atual = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -58,6 +58,29 @@ public class LojaController {
         attr.addFlashAttribute("success", "Carro inserido com sucesso.");
         return "redirect:/loja/lojaindex";
     }
+
+    @GetMapping("/editarcarro/{id}")
+	public String preEditarCarro(@PathVariable("id") Long id, ModelMap model) {
+		model.addAttribute("carro", carroservice.buscarPorId(id));
+		return "loja/cadastrocarro";
+	}
+
+    @PostMapping("/editarcarro")
+    public String editarCarro(@Valid Carro carro, BindingResult result, RedirectAttributes attr) {
+        if (result.hasErrors()) {
+			return "loja/cadastrocarro";
+		}
+        carroservice.salvar(carro);
+        attr.addFlashAttribute("success", "Carro editado com sucesso.");
+        return "redirect:/loja/lojaindex";
+    }
+
+    @GetMapping("/removercarro/{id}")
+	public String excluirCarro(@PathVariable("id") Long id, ModelMap model) {
+		carroservice.excluirPorId(id);
+		model.addAttribute("sucess", "Usuário excluído com sucesso.");
+		return lojaindex(model);
+	}
 
     @ModelAttribute("usuarioatual")
     public Usuario getUserAtual() {
