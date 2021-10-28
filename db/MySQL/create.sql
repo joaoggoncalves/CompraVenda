@@ -31,16 +31,12 @@ CREATE TABLE Carro(
 );
 
 CREATE TABLE Proposta(
-    idproposta INT NOT NULL auto_increment,
+    id BIGINT NOT NULL auto_increment,
     valorproposta FLOAT,
     condicoes VARCHAR(256),
     dataatual VARCHAR(100),
     statusproposta VARCHAR(64),
-    clienteproposta BIGINT,
-    placaproposta VARCHAR(10),
-    FOREIGN KEY (clienteproposta) REFERENCES Usuario(id),
-    FOREIGN KEY (placaproposta) REFERENCES Carro(placa),
-    PRIMARY KEY (idproposta)
+    PRIMARY KEY (id)
 );
 
 INSERT INTO Carro(placa, modelo, chassi, ano, km, descricaocarro, valor) VALUES ('ABC-1234', 'Chevette', 'chassi1', 1980, 100, 'Outra descricao', 1000);
