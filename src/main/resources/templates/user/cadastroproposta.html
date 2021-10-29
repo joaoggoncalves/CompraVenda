@@ -68,17 +68,6 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <input type="hidden" class="form-control" id="statusproposta"
-                    value="ABERTA"
-                    autofocus="autofocus" th:field="*{statusproposta}"
-                    th:classappend="${#fields.hasErrors('statusproposta')} ? is-invalid" />
-
-                <div class="invalid-feedback">
-                    <span th:errors="*{statusproposta}"></span>
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
                 <label text="Usuario:" for="usuario"></label> 
                 <select id="usuario" class="form-control" th:field="*{usuario}"
                     th:classappend="${#fields.hasErrors('usuario')} ? is-invalid">
@@ -100,7 +89,20 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
                 </select>
 
                 <div class="invalid-feedback">
-                    <span th:errors="*{usuario}"></span>
+                    <span th:errors="*{carro}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Status:" for="statusproposta"></label> 
+                <select id="statusproposta" class="form-control" th:field="*{statusproposta}"
+                    th:classappend="${#fields.hasErrors('statusproposta')} ? is-invalid">
+                    <option th:value="Aberta"
+                        th:text="Aberta"></option>
+                </select>
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{statusproposta}"></span>
                 </div>
             </div>
 

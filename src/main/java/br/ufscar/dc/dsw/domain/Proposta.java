@@ -1,11 +1,12 @@
 package br.ufscar.dc.dsw.domain;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
@@ -13,9 +14,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "Proposta")
 public class Proposta extends AbstractEntity<Long> {
 
-    @NotBlank
-    @Column(nullable = false, columnDefinition = "DECIMAL(8,2) DEFAULT 0.0")
-    private float valorproposta;
+    @Column(nullable = true, columnDefinition = "DECIMAL(8,2) DEFAULT 0.0")
+    private BigDecimal valorproposta;
 
     @Column(length = 256)
     private String condicoes;
@@ -36,7 +36,7 @@ public class Proposta extends AbstractEntity<Long> {
     @JoinColumn(name = "carro_id")
     private Carro carro;
 
-    public void setValorproposta(float valorproposta){
+    public void setValorproposta(BigDecimal valorproposta){
         this.valorproposta = valorproposta;
     }
 
@@ -60,7 +60,7 @@ public class Proposta extends AbstractEntity<Long> {
         this.carro = carro;
     }
 
-    public float getValorproposta() {
+    public BigDecimal getValorproposta() {
         return valorproposta;
     }
 

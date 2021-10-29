@@ -32,7 +32,7 @@ CREATE TABLE Carro(
 
 CREATE TABLE Proposta(
     id BIGINT NOT NULL auto_increment,
-    valorproposta FLOAT NOT NULL,
+    valorproposta FLOAT,
     condicoes VARCHAR(256),
     dataatual VARCHAR(100),
     statusproposta VARCHAR(64),
