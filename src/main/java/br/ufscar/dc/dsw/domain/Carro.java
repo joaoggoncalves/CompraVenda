@@ -8,8 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
 
 @SuppressWarnings("serial")
 @Entity
@@ -91,7 +91,6 @@ public class Carro extends AbstractEntity<Long> {
     public BigDecimal getValor() {
         return valor;
     }
-
     public Usuario getUsuario() {
         return usuario;
     }

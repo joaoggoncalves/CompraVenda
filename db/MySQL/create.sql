@@ -32,13 +32,9 @@ CREATE TABLE Carro(
 
 CREATE TABLE Proposta(
     id BIGINT NOT NULL auto_increment,
-    valorproposta FLOAT,
+    valorproposta FLOAT NOT NULL,
     condicoes VARCHAR(256),
     dataatual VARCHAR(100),
     statusproposta VARCHAR(64),
     PRIMARY KEY (id)
 );
-
-INSERT INTO Carro(placa, modelo, chassi, ano, km, descricaocarro, valor) VALUES ('ABC-1234', 'Chevette', 'chassi1', 1980, 100, 'Outra descricao', 1000);
-INSERT INTO Carro(placa, modelo, chassi, ano, km, descricaocarro, valor) VALUES ('ABC-4321', 'Ferrari', 'chassi2', 1980, 200, 'Outra descricao', 20000);
-INSERT INTO Carro(placa, modelo, chassi, ano, km, descricaocarro, valor) VALUES ('ABC-2222', 'Siena', 'chassi3', 1980, 300, 'Outra descricao', 300000);

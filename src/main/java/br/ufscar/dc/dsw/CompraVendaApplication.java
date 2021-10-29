@@ -22,6 +22,7 @@ public class CompraVendaApplication {
 			u1.setUsername("user");
 			u1.setPassword(encoder.encode("user"));
 			u1.setRole("ROLE_USER");
+			u1.setNome("Kleber");
 			//dao.save(u1);
 			Usuario u2 = new Usuario();
 			u2.setUsername("admin");
@@ -32,6 +33,7 @@ public class CompraVendaApplication {
 			u3.setUsername("loja");
 			u3.setPassword(encoder.encode("loja"));
 			u3.setRole("ROLE_LOJA");
+			u3.setNome("Lojinha");
 			//dao.save(u3);
 		};
 	}

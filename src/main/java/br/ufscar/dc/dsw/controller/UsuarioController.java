@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.ufscar.dc.dsw.domain.Proposta;
 import br.ufscar.dc.dsw.domain.Usuario;
-import br.ufscar.dc.dsw.service.spec.IUsuarioService;
+import br.ufscar.dc.dsw.service.spec.ICarroService;
+import br.ufscar.dc.dsw.service.spec.IPropostaService;
 import br.ufscar.dc.dsw.security.UsuarioDetails;
 
 @Controller
 @RequestMapping("/user")
 public class UsuarioController {
     @Autowired
-	private IUsuarioService service;
+	private IPropostaService service;
+
+    @Autowired
+    private ICarroService servicecarro;
 	
 
     @GetMapping("/userindex")
@@ -25,9 +30,9 @@ public class UsuarioController {
         return "user/userindex";
     }
 
-    @GetMapping(path = {"/cadastroproposta", "/cadastroproposta/{id}"})
-    public String cadastroproposta(@PathVariable("id") Long id, ModelMap model) {
-        model.addAttribute("idcarro", id);
+    @GetMapping("/cadastroproposta/{id}")
+    public String cadastroproposta(@PathVariable("id") Long id, ModelMap model, Proposta proposta) {
+        model.addAttribute("carroatual", servicecarro.buscarPorId(id));
         return "user/cadastroproposta";
     }
 

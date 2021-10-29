@@ -1,15 +1,113 @@
 <!DOCTYPE html>
-<html
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel = "stylesheet" type ="text/css" th:href = "@{/css/style.css}">
-        <title>Cadastro Proposta</title>
-    </head>
-    <body>
-        <h1 th:text="${usuarioatual.nome}"></h1>
-        <h2 th:text="${idcarro}"></h2>
-    </body>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
+  <head>
+    <title>Registro de Proposta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!--<style>
+    body {
+      background-image: url(../image/car.jpg);
+      background-size: cover;
+      background-position: center;
+    }
+  </style>-->
+
+  <link rel="stylesheet" type ="text/css" th:href="@{/css/style.css}">
+  </head>
+  <body>
+    <div align="center">
+      <h1><font color="black"><font color="Black">Gerenciamento de Propostas</font></h1>
+      <h2>
+        <a th:href="@{/user/userindex}">Voltar</a>
+      </h2>
+    </div>
+    <div align="center">
+        <form
+        th:action="@{/user/salvarproposta}"
+        th:object="${proposta}" method="POST">
+
+        <div class="form-row">
+
+            <div class="form-group col-md-6">
+                <label text="Valor:" for="valorproposta"></label> 
+                <input type="text" class="form-control" id="valorproposta"
+                    placeholder="Valor"
+                    autofocus="autofocus" th:field="*{valorproposta}"
+                    th:classappend="${#fields.hasErrors('valorproposta')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{valorproposta}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Condições:" for="condicoes"></label> 
+                <input type="text" class="form-control" id="condicoes"
+                    placeholder="Condições"
+                    autofocus="autofocus" th:field="*{condicoes}"
+                    th:classappend="${#fields.hasErrors('condicoes')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{condicoes}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Data:" for="dataatual"></label> 
+                <input type="text" class="form-control" id="dataatual"
+                    th:value="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" readonly
+                    autofocus="autofocus" th:field="*{dataatual}"
+                    th:classappend="${#fields.hasErrors('dataatual')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{dataatual}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <input type="hidden" class="form-control" id="statusproposta"
+                    value="ABERTA"
+                    autofocus="autofocus" th:field="*{statusproposta}"
+                    th:classappend="${#fields.hasErrors('statusproposta')} ? is-invalid" />
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{statusproposta}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Usuario:" for="usuario"></label> 
+                <select id="usuario" class="form-control" th:field="*{usuario}"
+                    th:classappend="${#fields.hasErrors('usuario')} ? is-invalid">
+                    <option th:value="${usuarioatual.id}"
+                        th:text="${usuarioatual.nome}"></option>
+                </select>
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{usuario}"></span>
+                </div>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label text="Carro:" for="carro"></label> 
+                <select id="carro" class="form-control" th:field="*{carro}"
+                    th:classappend="${#fields.hasErrors('carro')} ? is-invalid">
+                    <option th:value="${carroatual.id}"
+                        th:text="${carroatual.modelo}"></option>
+                </select>
+
+                <div class="invalid-feedback">
+                    <span th:errors="*{usuario}"></span>
+                </div>
+            </div>
+
+        <input type="hidden" id="id" th:field="*{id}" />
+        <button type="submit"
+            class="btn btn-primary btn-sm">Salvar</button>
+    </form>
+    </div>
+  </body>
 </html>
