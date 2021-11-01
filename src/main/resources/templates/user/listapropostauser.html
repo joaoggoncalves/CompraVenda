@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Lista Propostas</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" type ="text/css" th:href = "@{/css/lojaindex.css}">
+    </head>
+    <body>
+        <div align="center">
+			<h1 class="label">Lista de Propostas</h1>
+            <h2>
+                <a th:href="@{/user/userindex}">Voltar</a>
+            </h2>
+		</div>
+        <div align="center">
+            <table class="styled-table">		
+                <thead>
+					<tr>
+						<th>Valor</th>
+						<th>Condições</th>
+						<th>Data</th>
+						<th>Carro</th>
+                        <th>Status</th>
+					</tr>
+
+                </thead>		
+                <tbody>
+                <tr th:each="proposta : ${propostas}">
+                    <td th:text="${proposta.valorproposta}"></td>
+                    <td th:text="${proposta.condicoes}"></td>
+                    <td th:text="${proposta.dataatual}"></td>
+                    <td th:text="${proposta.carro.modelo}"></td>
+                    <td th:text="${proposta.statusproposta}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>             
+    </body>
+</html>

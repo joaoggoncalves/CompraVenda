@@ -1,5 +1,8 @@
 package br.ufscar.dc.dsw.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,11 +45,35 @@ public class UsuarioController {
         return "user/cadastroproposta";
     }
 
+    @GetMapping("/listapropostauser")
+    public String listapropostauser(ModelMap model) {
+        List<Proposta> listapropostas = service.todasPropostas();
+        List<Proposta> listapropostafiltrada = new ArrayList<Proposta>();
+        Object atual = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long idatual = ((UsuarioDetails)atual).getUsuario().getId();
+        for (int i = 0; i < listapropostas.size(); i++) {
+            if (listapropostas.get(i).getUsuario().getId() == idatual) {
+                listapropostafiltrada.add(listapropostas.get(i));
+            }
+        }
+        model.addAttribute("propostas", listapropostafiltrada);
+        return "user/listapropostauser";
+    }
+
     @PostMapping("/salvarproposta")
     public String salvarProposta(@Valid Proposta proposta, BindingResult result, RedirectAttributes attr) {
         if (result.hasErrors()) {
             return "user/cadastroproposta";
         }
+
+        List<Proposta> listapropostas = service.todasPropostas();
+        /*for (int i = 0; i < listapropostas.size(); i++) {
+            if (listapropostas.get(i).getCarro().getId() == proposta.getCarro().getId()) {
+                attr.addFlashAttribute("error", "Você já possui uma proposta neste carro");
+                result.addError(new ObjectError("Proposta", "Você já possui uma proposta neste carro"));
+                return "/error";
+            }
+        }*/
 
         service.salvar(proposta);
         attr.addFlashAttribute("success", "Proposta inserida com sucesso.");

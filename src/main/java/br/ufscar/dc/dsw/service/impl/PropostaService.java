@@ -3,6 +3,7 @@ package br.ufscar.dc.dsw.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,13 +18,17 @@ public class PropostaService implements IPropostaService {
     @Autowired
     IPropostaDAO dao;
 
-    /*public void aceitarProposta(Long id) {
+    @Transactional
+    @Modifying
+    public void aceitarProposta(Long id) {
         dao.aceitaProposta(id);
     }
 
+    @Transactional
+    @Modifying
     public void recusarProposta(Long id) {
         dao.recusaProposta(id);
-    }*/
+    }
 
     @Transactional(readOnly = true)
     public List<Proposta> todasPropostas() {

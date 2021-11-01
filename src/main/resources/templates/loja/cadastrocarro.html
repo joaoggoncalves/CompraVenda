@@ -45,7 +45,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             <div class="form-group col-md-6">
                 <label text="Modelo:" for="modelo"></label> 
                 <input type="text" class="form-control" id="modelo"
-                    placeholder="Chevettão da massa"
+                    placeholder="Modelo"
                     autofocus="autofocus" th:field="*{modelo}"
                     th:classappend="${#fields.hasErrors('modelo')} ? is-invalid" />
 
@@ -57,7 +57,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             <div class="form-group col-md-6">
                 <label text="Chassi:" for="chassi"></label> 
                 <input type="text" class="form-control" id="chassi"
-                    placeholder="naoseioqehchassi"
+                    placeholder="Chassi"
                     autofocus="autofocus" th:field="*{chassi}"
                     th:classappend="${#fields.hasErrors('chassi')} ? is-invalid" />
 

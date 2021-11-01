@@ -57,11 +57,11 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 
             <div class="form-group col-md-6">
                 <label text="Data:" for="dataatual"></label> 
-                <input type="text" class="form-control" id="dataatual"
-                    th:value="${#dates.format(#dates.createNow(), 'dd MMM yyyy HH:mm')}" readonly
-                    autofocus="autofocus" th:field="*{dataatual}"
-                    th:classappend="${#fields.hasErrors('dataatual')} ? is-invalid" />
-
+                <select id="dataatual" class="form-control" th:field="*{dataatual}"
+                    th:classappend="${#fields.hasErrors('dataatual')} ? is-invalid">
+                    <option th:value="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm')}" 
+                        th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm')}"></option>
+                </select>
                 <div class="invalid-feedback">
                     <span th:errors="*{dataatual}"></span>
                 </div>
