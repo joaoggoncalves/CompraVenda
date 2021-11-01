@@ -61,21 +61,23 @@ public class UsuarioController {
     }
 
     @PostMapping("/salvarproposta")
-    public String salvarProposta(@Valid Proposta proposta, BindingResult result, RedirectAttributes attr) {
+    public String salvarProposta(@Valid Proposta proposta, BindingResult result, RedirectAttributes attr, ModelMap model) {
         if (result.hasErrors()) {
             return "user/cadastroproposta";
         }
 
         List<Proposta> listapropostas = service.todasPropostas();
-        /*for (int i = 0; i < listapropostas.size(); i++) {
+        for (int i = 0; i < listapropostas.size(); i++) {
             if (listapropostas.get(i).getCarro().getId() == proposta.getCarro().getId()) {
-                attr.addFlashAttribute("error", "Você já possui uma proposta neste carro");
                 result.addError(new ObjectError("Proposta", "Você já possui uma proposta neste carro"));
-                return "/error";
+                Long id = proposta.getCarro().getId();
+                model.addAttribute("repetida", 1);
+                return cadastroproposta(id, model, proposta);
             }
-        }*/
+        }
 
         service.salvar(proposta);
+        model.addAttribute("repetida", 0);
         attr.addFlashAttribute("success", "Proposta inserida com sucesso.");
         return "redirect:/user/userindex";
     }

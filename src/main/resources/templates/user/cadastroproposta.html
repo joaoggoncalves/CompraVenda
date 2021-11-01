@@ -23,6 +23,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
       <h2>
         <a th:href="@{/user/userindex}">Voltar</a>
       </h2>
+      <h3>
+          <span th:if="${repetida == 1}">Você já fez uma proposta para este carro</span>
+      </h3>
     </div>
     <div align="center">
         <form
