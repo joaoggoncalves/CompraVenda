@@ -18,12 +18,18 @@
           <li><a th:href="@{/contato}">Contato</a></li>
           <li><a th:href="@{/login}">Login</a></li>
           <li><a class="active" href="#">Home</a></li>
+          <li><a th:href="@{''(lang=pt)}">
+            <img alt="" th:src="@{/image/Brasil.gif}" style="width: 50px"/>
+          </a></li>
+          <li><a th:href="@{''(lang=en)}">
+            <img alt="" th:src="@{/image/EUA.gif}" style="width: 50px"/>
+          </a></li>
         </ul>
       </div>
     </header>
     <div class="action_btn">
-      <a th:href="@{/login}" class="btn">Vender</a>
-      <a th:href="@{/listacarros/lista}" class="btn">Comprar</a>
+      <a th:href="@{/login}" class="btn" th:text="#{sell.message}"></a>
+      <a th:href="@{/listacarros/lista}" class="btn" th:text="#{buy.message}"></a>
     </div>
   </body>
 </html>
