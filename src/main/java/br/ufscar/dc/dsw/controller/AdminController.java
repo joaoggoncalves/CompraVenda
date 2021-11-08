@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.ufscar.dc.dsw.domain.Carro;
 import br.ufscar.dc.dsw.domain.Usuario;
+import br.ufscar.dc.dsw.service.spec.ICarroService;
 import br.ufscar.dc.dsw.service.spec.IUsuarioService;
 
 @Controller
@@ -24,6 +26,9 @@ import br.ufscar.dc.dsw.service.spec.IUsuarioService;
 public class AdminController {
     @Autowired
 	private IUsuarioService service;
+
+    @Autowired
+    private ICarroService carroservice;
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
@@ -95,6 +100,20 @@ public class AdminController {
 
     @GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
+        Usuario excluido = service.buscarPorId(id);
+        if (excluido.getRole().equals("ROLE_LOJA")) {
+            List<Carro> listacarros = carroservice.todosCarros();
+            List<Carro> carrosdaloja = new ArrayList<Carro>();
+            for (int i = 0; i < listacarros.size(); i++) {
+                if (listacarros.get(i).getUsuario().getId() == excluido.getId()) {
+                    carrosdaloja.add(listacarros.get(i));
+                }
+            }
+            for (int j = 0; j < carrosdaloja.size(); j++) {
+                carroservice.excluirPorId(carrosdaloja.get(j).getId());
+            }
+            System.out.println("CHEGUEI AQUI");
+        }
 		service.excluir(id);
 		model.addAttribute("sucess", "Usuário excluído com sucesso.");
 		return adminindex();

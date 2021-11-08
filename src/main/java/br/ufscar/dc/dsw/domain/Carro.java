@@ -10,6 +10,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 @SuppressWarnings("serial")
 @Entity
@@ -41,6 +44,7 @@ public class Carro extends AbstractEntity<Long> {
 
     @NotNull
     @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
