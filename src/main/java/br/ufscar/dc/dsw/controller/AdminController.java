@@ -112,7 +112,6 @@ public class AdminController {
             for (int j = 0; j < carrosdaloja.size(); j++) {
                 carroservice.excluirPorId(carrosdaloja.get(j).getId());
             }
-            System.out.println("CHEGUEI AQUI");
         }
 		service.excluir(id);
 		model.addAttribute("sucess", "Usuário excluído com sucesso.");
