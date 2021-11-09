@@ -17,33 +17,25 @@ public class CompraVendaApplication {
 
 	@Bean
 	public CommandLineRunner demo(IUsuarioDAO dao, BCryptPasswordEncoder encoder) {
-		try {
-			return (args) -> {
-				Usuario u1 = new Usuario();
-				u1.setUsername("user");
-				u1.setPassword(encoder.encode("user"));
-				u1.setRole("ROLE_USER");
-				u1.setNome("Kleber");
-				dao.save(u1);
-				Usuario u2 = new Usuario();
-				u2.setUsername("admin");
-				u2.setPassword(encoder.encode("admin"));
-				u2.setRole("ROLE_ADMIN");
-				dao.save(u2);
-				Usuario u3 = new Usuario();
-				u3.setUsername("loja");
-				u3.setPassword(encoder.encode("loja"));
-				u3.setRole("ROLE_LOJA");
-				u3.setNome("Lojinha");
-				dao.save(u3);
-			};
-		} catch (IllegalStateException e) {
-			System.out.println("Usuarios já existentes.");
-		} finally {
-			return (args) -> {
-				System.out.println("Nada a ser feito.");
-			};
-		}
+		return (args) -> {
+			Usuario u1 = new Usuario();
+			u1.setUsername("user");
+			u1.setPassword(encoder.encode("user"));
+			u1.setRole("ROLE_USER");
+			u1.setNome("Kleber");
+			//dao.save(u1);
+			Usuario u2 = new Usuario();
+			u2.setUsername("admin");
+			u2.setPassword(encoder.encode("admin"));
+			u2.setRole("ROLE_ADMIN");
+			//dao.save(u2);
+			Usuario u3 = new Usuario();
+			u3.setUsername("loja");
+			u3.setPassword(encoder.encode("loja"));
+			u3.setRole("ROLE_LOJA");
+			u3.setNome("Lojinha");
+			//dao.save(u3);
+		};
 	}
 
 }
