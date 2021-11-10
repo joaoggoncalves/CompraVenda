@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.ufscar.dc.dsw.domain.Carro;
+import br.ufscar.dc.dsw.domain.Proposta;
 import br.ufscar.dc.dsw.domain.Usuario;
 import br.ufscar.dc.dsw.service.spec.ICarroService;
+import br.ufscar.dc.dsw.service.spec.IPropostaService;
 import br.ufscar.dc.dsw.service.spec.IUsuarioService;
 
 @Controller
@@ -29,6 +31,9 @@ public class AdminController {
 
     @Autowired
     private ICarroService carroservice;
+
+    @Autowired
+    private IPropostaService propostaservice;
 	
 	@Autowired
 	private BCryptPasswordEncoder encoder;
@@ -102,13 +107,27 @@ public class AdminController {
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
         Usuario excluido = service.buscarPorId(id);
         if (excluido.getRole().equals("ROLE_LOJA")) {
+            //Apagar carros da loja e propostas antes da exclusão
             List<Carro> listacarros = carroservice.todosCarros();
             List<Carro> carrosdaloja = new ArrayList<Carro>();
+
+            List<Proposta> listapropostas = propostaservice.todasPropostas();
+
             for (int i = 0; i < listacarros.size(); i++) {
                 if (listacarros.get(i).getUsuario().getId() == excluido.getId()) {
                     carrosdaloja.add(listacarros.get(i));
                 }
             }
+
+            for (int k = 0; k < listapropostas.size(); k++) {
+                for (int m = 0; m < carrosdaloja.size(); m++) {
+                    if (listapropostas.get(k).getCarro().getId() == carrosdaloja.get(m).getId()) {
+                        propostaservice.excluirPorId(listapropostas.get(k).getId());
+                        listapropostas.remove(k);
+                    }
+                }
+            }
+
             for (int j = 0; j < carrosdaloja.size(); j++) {
                 carroservice.excluirPorId(carrosdaloja.get(j).getId());
             }
