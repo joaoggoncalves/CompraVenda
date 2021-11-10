@@ -2,23 +2,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lista Lojas</title>
+        <title th:text="#{list_stores_title.message}"></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel = "stylesheet" type ="text/css" th:href = "@{/css/lojaindex.css}">
     </head>
     <body>
         <div align="center">
-			<h1 class="label">Gerenciamento Lojas</h1>
+			<h1 class="label" th:text="#{manage_stores.message}"></h1>
 		</div>
         <div align="center">
             <table class="styled-table">		
                 <thead>
 					<tr>
-						<th>Username</th>
+						<th th:text="#{username.message}"></th>
 						<th>CNPJ</th>
-						<th>Nome</th>
-						<th>Descricao</th>
-						<th>Ação</th>
+						<th th:text="#{name.message}"></th>
+						<th th:text="#{description.message}"></th>
+						<th th:text="#{action.message}"></th>
 					</tr>
 
                 </thead>		
@@ -28,8 +28,8 @@
                     <td th:text="${usuario.cpf}"></td>
                     <td th:text="${usuario.nome}"></td>
                     <td th:text="${usuario.descricao}"></td>
-                    <td><a th:href="@{/admin/editar/{id} (id=${usuario.id}) }">Editar</a>
-                        <a th:href="@{/admin/excluir/{id} (id=${usuario.id}) }" onclick="return confirm('Tem certeza que deseja deletar esse usuário?');">Deletar</a>
+                    <td><a th:href="@{/admin/editar/{id} (id=${usuario.id}) }" th:text="#{edit.message}"></a>
+                        <a th:href="@{/admin/excluir/{id} (id=${usuario.id}) }" onclick="return confirm('Tem certeza que deseja deletar esse usuário?');" th:text="#{delete.message}"></a>
                     </td>
                     </tr>
                 </c:forEach>

@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
-      <title>Pagina de login</title>
+      <title th:text="#{login_page.message}"></title>
       <link rel = "stylesheet" type ="text/css" th:href = "@{/css/style.css}">
    </head>
    <body class="login">
@@ -13,7 +13,7 @@
            <img th:src="@{/image/logo_free.jpg}">
          </div>
          <ul class="top_bar">
-            <li><a th:href="@{/contato}">Contato</a></li>
+            <li><a th:href="@{/contato}" th:text="#{contact.message}"></a></li>
           <li><a th:href="@{/login}">Login</a></li>
           <li><a class="active" th:href="@{/home}">Home</a></li>
          </ul>
@@ -27,11 +27,11 @@
          <div class="right">
             <div class="formBox">
                <form method="post" th:action="@{/login}">
-                  <label for="username">Username:</label>
+                  <label for="username" th:text="#{username.message}"></label>
                   <input type="username" name="username" placeholder="My name is Jonas" required >
-                  <label for="pass">Password:</label>
+                  <label for="pass" th:text="#{password.message}"></label>
                   <input type="password" name="password" placeholder="********" required>
-                  <input type="submit" name="bOK" value="Entrar"/>
+                  <input type="submit" name="bOK" th:value="#{next.message}">
                </form>
                </form>
             </div>

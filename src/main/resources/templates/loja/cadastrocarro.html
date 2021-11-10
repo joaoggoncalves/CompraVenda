@@ -3,25 +3,16 @@
 xmlns:th="http://www.thymeleaf.org"
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
   <head>
-    <title>Registro de Carro</title>
+    <title th:text="#{car_register.message}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-    <!--<style>
-    body {
-      background-image: url(../image/car.jpg);
-      background-size: cover;
-      background-position: center;
-    }
-  </style>-->
-
   <link rel="stylesheet" type ="text/css" th:href="@{/css/style.css}">
   </head>
   <body>
     <div align="center">
-      <h1><font color="black"><font color="Black">Gerenciamento de Carros</font></h1>
+      <font color="black"><h1 th:text="#{car_manage.message}"></font></h1>
       <h2>
-        <a th:href="@{/loja/lojaindex}">Voltar</a>
+        <a th:href="@{/loja/lojaindex}" th:text="#{back.message}"></a>
       </h2>
     </div>
     <div align="center">
@@ -31,7 +22,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label text="Placa:" for="placa"></label> 
+                <label th:text="#{plate.message}" for="placa"></label> 
                 <input type="text" class="form-control" id="placa"
                     placeholder="ABC-1234"
                     autofocus="autofocus" th:field="*{placa}"
@@ -43,9 +34,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <label text="Modelo:" for="modelo"></label> 
+                <label th:text="#{model.message}" for="modelo"></label> 
                 <input type="text" class="form-control" id="modelo"
-                    placeholder="Modelo"
+                    th:placeholder="#{model.message}"
                     autofocus="autofocus" th:field="*{modelo}"
                     th:classappend="${#fields.hasErrors('modelo')} ? is-invalid" />
 
@@ -55,9 +46,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <label text="Chassi:" for="chassi"></label> 
+                <label th:text="#{chassi.message}" for="chassi"></label> 
                 <input type="text" class="form-control" id="chassi"
-                    placeholder="Chassi"
+                    th:placeholder="#{chassi.message}"
                     autofocus="autofocus" th:field="*{chassi}"
                     th:classappend="${#fields.hasErrors('chassi')} ? is-invalid" />
 
@@ -67,9 +58,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <label text="Ano:" for="ano"></label> 
+                <label th:text="#{year.message}" for="ano"></label> 
                 <input type="number" class="form-control" id="ano"
-                    placeholder="Ano"
+                    th:placeholder="#{year.message}"
                     autofocus="autofocus" th:field="*{ano}"
                     th:classappend="${#fields.hasErrors('ano')} ? is-invalid" />
 
@@ -79,9 +70,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <label text="Km:" for="km"></label> 
+                <label th:text="#{km.message}" for="km"></label> 
                 <input type="number" class="form-control" id="km"
-                    placeholder="Kilometragem"
+                    th:placeholder="#{km.message}"
                     autofocus="autofocus" th:field="*{km}"
                     th:classappend="${#fields.hasErrors('km')} ? is-invalid" />
 
@@ -91,9 +82,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <label text="Descricao:" for="descricaocarro"></label> 
+                <label th:text="#{description.message}"for="descricaocarro"></label> 
                 <input type="text" class="form-control" id="descricaocarro"
-                    placeholder="Descricao do carro"
+                    th:placeholder="#{car_description.message}"
                     autofocus="autofocus" th:field="*{descricaocarro}"
                     th:classappend="${#fields.hasErrors('descricaocarro')} ? is-invalid" />
 
@@ -103,9 +94,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <label text="Preço:" for="valor"></label> 
+                <label th:text="#{price.message}" for="valor"></label> 
                 <input type="text" class="form-control" id="valor"
-                    placeholder="Preço"
+                    th:placeholder="#{price.message}"
                     autofocus="autofocus" th:field="*{valor}"
                     th:classappend="${#fields.hasErrors('valor')} ? is-invalid" />
 
@@ -115,7 +106,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
 
             <div class="form-group col-md-6">
-                <label text="Loja:" for="usuario"></label> 
+                <label th:text="#{store.message}" for="usuario"></label> 
                 <select id="usuario" class="form-control" th:field="*{usuario}"
                     th:classappend="${#fields.hasErrors('usuario')} ? is-invalid">
                     <option th:value="${usuarioatual.id}"
@@ -129,7 +120,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 
         <input type="hidden" id="id" th:field="*{id}" />
         <button type="submit"
-            class="btn btn-primary btn-sm">Salvar</button>
+            class="btn btn-primary btn-sm" th:text="#{save.message}"></button>
     </form>
     </div>
   </body>

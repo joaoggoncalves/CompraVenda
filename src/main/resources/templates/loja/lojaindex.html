@@ -5,40 +5,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel = "stylesheet" type ="text/css" th:href = "@{/css/lojaindex.css}">
-        <title>Menu Loja</title>
+        <title th:text="#{menu_store.message}"></title>
     </head>
     <body>
         <div align="center">
-            <h1>Página da Loja</h1>
+            <h1 th:text="#{store_page.message}"></h1>
         </div>
 
         <div align="center">
-            <span>Olá </span>
+            <span th:text="#{hello.message}"></span>
             <span sec:authentication="name">Teste</span>
             <br>
             <br>
 
-            <a th:href="@{/loja/cadastrocarro}">Adicionar Carro</a>
-            <a href="#">Adicionar Foto</a>
-            <a th:href="@{/loja/listapropostaloja}">Listar Propostas</a>
-            <a href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
+            <a th:href="@{/loja/cadastrocarro}" th:text="#{add_car.message}"></a>
+            <a href="#" th:text="#{add_photo.message}"></a>
+            <a th:href="@{/loja/listapropostaloja}" th:text="#{list_proposal.message}"></a>
+            <a href="#" onclick="document.getElementById('logout-form').submit();" th:text="#{quit.message}"></a>
             <form id="logout-form" th:action="@{/logout}" method="post"></form>
         </div>
         <br>
         <br>
         <div align="center">
-            <h3>Seus Carros:</h3>
+            <h3 th:text="#{your_cars.message}"></h3>
             <table class="styled-table">
             <thead>
             <tr>
-                <th>Placa</th>
-                <th>Modelo</th>
-                <th>Chassi</th>
-                <th>Ano</th>
-                <th>Km</th>
-                <th>Descrição</th>
-                <th>Preço</th>
-                <th>Ação</th>
+                <th th:text="#{plate.message}"></th>
+                <th th:text="#{model.message}"></th>
+                <th th:text="#{chassi.message}"></th>
+                <th th:text="#{year.message}"></th>
+                <th th:text="#{km.message}"></th>
+                <th th:text="#{description.message}"></th>
+                <th th:text="#{price.message}"></th>
+                <th th:text="#{action.message}"></th>
             </tr>
             </thead>
             <tbody>       
@@ -51,8 +51,8 @@
                     <td th:text="${carro.descricaocarro}"></td>
                     <td th:text="${carro.valor}"></td>
                     <td>
-                        <a th:href="@{/loja/editarcarro/{id} (id=${carro.id}) }" class="teste"><h3>Editar</h3></a> &nbsp;&nbsp;&nbsp;&nbsp;        
-                        <a th:href="@{/loja/removercarro/{id} (id=${carro.id}) }" onclick="return confirm('Tem certeza de que deseja excluir este item?');"><h3>Deletar</h3></a>
+                        <a th:href="@{/loja/editarcarro/{id} (id=${carro.id}) }" class="teste"><h3 th:text="#{edit.message}"></h3></a> &nbsp;&nbsp;&nbsp;&nbsp;        
+                        <a th:href="@{/loja/removercarro/{id} (id=${carro.id}) }" onclick="return confirm('Tem certeza de que deseja excluir este item?');"><h3 th:text="#{delete.message}"></h3></a>
                     </td>
             </tbody>
             </table>

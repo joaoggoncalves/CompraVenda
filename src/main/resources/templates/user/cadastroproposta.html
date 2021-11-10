@@ -3,7 +3,7 @@
 xmlns:th="http://www.thymeleaf.org"
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
   <head>
-    <title>Registro de Proposta</title>
+    <title th:text="#{proposal_register.message}"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -19,12 +19,12 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
   </head>
   <body>
     <div align="center">
-      <h1><font color="black"><font color="Black">Gerenciamento de Propostas</font></h1>
+        <font color="black"><h1 th:text="#{proposal_manage.message}"></font></h1>
       <h2>
-        <a th:href="@{/user/userindex}">Voltar</a>
+        <a th:href="@{/user/userindex}" th:text="#{back.message}"></a>
       </h2>
       <h3>
-          <span th:if="${repetida == 1}">Você já fez uma proposta para este carro</span>
+          <span th:if="${repetida == 1}"th:text="#{already_proposal.message}"></span>
       </h3>
     </div>
     <div align="center">
@@ -37,7 +37,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             <div class="form-group col-md-6">
                 <label text="Valor:" for="valorproposta"></label> 
                 <input type="text" class="form-control" id="valorproposta"
-                    placeholder="Valor"
+                    th:placeholder="#{value.message}"
                     autofocus="autofocus" th:field="*{valorproposta}"
                     th:classappend="${#fields.hasErrors('valorproposta')} ? is-invalid" />
 
@@ -49,7 +49,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             <div class="form-group col-md-6">
                 <label text="Condições:" for="condicoes"></label> 
                 <input type="text" class="form-control" id="condicoes"
-                    placeholder="Condições"
+                    th:placeholder="#{condition.message}"
                     autofocus="autofocus" th:field="*{condicoes}"
                     th:classappend="${#fields.hasErrors('condicoes')} ? is-invalid" />
 
@@ -111,7 +111,7 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 
         <input type="hidden" id="id" th:field="*{id}" />
         <button type="submit"
-            class="btn btn-primary btn-sm">Salvar</button>
+            class="btn btn-primary btn-sm" th:text="#{save.message}"></button>
     </form>
     </div>
   </body>

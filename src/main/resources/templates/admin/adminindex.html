@@ -23,21 +23,21 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
             </div>
         
         <div align="center">
-        <h1><font color="white">Página do Ademas</font></h1>
+        <h1><font color="white" th:text="#{adm_page.message}"></font></h1>
         </div>
               <div class="acontainer">
                 <br><br><br>
                     <ol class="rounded-list">
                  
                       <div class="teste">
-                        <h2> CRUD USERS<br></h2>
+                        <h2 th:text="#{crud_user.message}"><br></h2>
                         <br>
-                    <li><a th:href="@{/admin/listausers}">Listar Users</li></a>
-                    <li><a th:href="@{/admin/cadastrouser}">Adicionar User/Loja</li></a>
+                    <li><a th:href="@{/admin/listausers}" th:text="#{list_users.message}"></li></a>
+                    <li><a th:href="@{/admin/cadastrouser}" th:text="#{add_user_store.message}"></li></a>
                     <br>
-                    <h2> CRUD LOJAS<br></h2>
-                    <li><a th:href="@{/admin/listalojas}">Listar Lojas</li></a>
-                <li> <a href="#" onclick="document.getElementById('logout-form').submit();">Quitar</a></li>
+                    <h2 th:text="#{crud_stores.message}"> <br></h2>
+                    <li><a th:href="@{/admin/listalojas}" th:text="#{list_stores.message}"></li></a>
+                <li> <a href="#" onclick="document.getElementById('logout-form').submit();" th:text="#{quit.message}"></a></li>
                 <form id="logout-form" th:action="@{/logout}" method="post"></form>
               </div>
               </div>

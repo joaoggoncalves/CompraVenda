@@ -15,7 +15,7 @@
           <img th:src="@{/image/logo_free.jpg}" />
         </div>
         <ul class="top_bar">
-          <li><a th:href="@{/contato}">Contato</a></li>
+          <li><a th:href="@{/contato}" th:text="#{contact.message}"></a></li>
           <li><a th:href="@{/login}">Login</a></li>
           <li><a class="active" href="#">Home</a></li>
           <li><a th:href="@{''(lang=pt)}">
