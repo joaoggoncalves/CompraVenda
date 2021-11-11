@@ -262,4 +262,52 @@ ol {
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
 }
 
-  
+/*Cadastro Carro*/
+
+
+.carForm label {
+    display:  flex;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    justify-content: center;
+    
+
+}
+
+.carForm {
+    width: 20%;
+    height: 20%;
+    background: #fff;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.btnCar{
+    border: 1px solid #1c8a1c;
+    padding: 8px 10px;
+    color:#1c8a1c;
+    text-decoration: none;
+    transition: 0.6s ease-in-out;
+    font-size: xx-large;
+    border-radius: 4px;
+    margin-top: 0.3rem;
+    
+   
+}
+
+.btnCar:hover {
+    background-color: #1c8a1c;
+    color: #fff;
+    
+}
+
+/*Bandeiras INDEX*/
+
+#flag {
+    height: 15px;
+    
+    width: 30px;
+   
+}

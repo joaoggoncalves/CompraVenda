@@ -7,15 +7,26 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="stylesheet" type ="text/css" th:href="@{/css/style.css}">
+
+<style>
+    body {
+      background-image: url(../image/Silvia.png);
+      
+      background-position: center;
+    }
+  </style>
+
   </head>
   <body>
     <div align="center">
-      <font color="black"><h1 th:text="#{car_manage.message}"></font></h1>
+      <font color="white"><h1 th:text="#{car_manage.message}"></font></h1>
       <h2>
-        <a th:href="@{/loja/lojaindex}" th:text="#{back.message}"></a>
+        <font color="white"> <a th:href="@{/loja/lojaindex}" th:text="#{back.message}"></a></font>  
       </h2>
     </div>
-    <div align="center">
+    <br><br>
+  
+    <div class="carForm">
         <form
         th:action="${carro.id == null} ? @{/loja/salvarcarro} : @{/loja/editarcarro}"
         th:object="${carro}" method="POST">
@@ -120,8 +131,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 
         <input type="hidden" id="id" th:field="*{id}" />
         <button type="submit"
-            class="btn btn-primary btn-sm" th:text="#{save.message}"></button>
+            class="btnCar" th:text="#{save.message}"></button>
     </form>
     </div>
+
   </body>
 </html>

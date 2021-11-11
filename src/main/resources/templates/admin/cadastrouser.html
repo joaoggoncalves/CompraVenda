@@ -8,6 +8,16 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <link rel="stylesheet" type ="text/css" th:href="@{/css/style.css}">
+
+  <style>
+    body {
+      background-image: url(../image/DodgeViper.png);
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+
+
   </head>
   <body>
     <div align="center">
@@ -16,7 +26,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
         <a th:href="@{/admin/listausers}" th:text="#{list_users.message}"></a>
       </h2>
     </div>
-    <div align="center">
+    <br><br>
+    
+    <div class="carForm">
         <form
         th:action="${usuario.id == null} ? @{/admin/salvar} : @{/admin/editar}"
         th:object="${usuario}" method="POST">
@@ -129,8 +141,9 @@ xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity">
 
         <input type="hidden" id="id" th:field="*{id}" />
         <button type="submit"
-            class="btn btn-primary btn-sm" th:text="#{save.message}"></button>
+            class="btnCar" th:text="#{save.message}"></button>
     </form>
     </div>
+  
   </body>
 </html>
